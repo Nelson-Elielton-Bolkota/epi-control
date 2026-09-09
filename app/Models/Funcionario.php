@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Entrega;
 
 class Funcionario extends Model
 {
@@ -14,4 +15,8 @@ class Funcionario extends Model
     'data_admissao',
     'status'
     ];
+    public function entregas()
+    {
+        return $this->hasMany(Entrega::class);
+    }
 }

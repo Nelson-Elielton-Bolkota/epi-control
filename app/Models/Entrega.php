@@ -14,4 +14,12 @@ class Entrega extends Model
     'data_devolucao',
     'observacao'
     ];
+    public function funcionario()
+    {
+        return $this->belongsTo(Funcionario::class);
+    }
+    public function epi()
+    {
+        return $this->belongsTo(Epi::class);
+    }
 }
