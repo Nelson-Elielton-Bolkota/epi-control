@@ -32,6 +32,7 @@ class EpiController extends Controller
     {
         $request->validate([
             'nome' => 'required|string|max:100',
+            'tipo'=>'required|string|max:100',
             'ca' => 'required|string|max:6',
             'fabricante' => 'required|string|max:100',
             'quantidade' => 'required|integer|min:0',
