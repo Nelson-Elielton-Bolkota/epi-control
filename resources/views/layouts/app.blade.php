@@ -39,6 +39,11 @@
                             Funcionários
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('entregas.index') }}">
+                            Entregas
+                        </a>
+                    </li>
 
                 </ul>
 

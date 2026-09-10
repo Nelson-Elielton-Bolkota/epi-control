@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Requests\EntregaRequest;
 use Illuminate\Http\Request;
 use App\Models\Entrega;
+use App\Models\Epi;
+use App\Models\Funcionario;
+
 
 class EntregaController extends Controller
 {
@@ -22,8 +25,12 @@ class EntregaController extends Controller
      */
     public function create()
     {
-        return view('entregas.create');
+    $funcionarios = Funcionario::where('status', 'Ativo')->get();
+    $epis = Epi::where('status', 'Ativo')->get();
+
+    return view('entregas.create', compact('funcionarios', 'epis'));
     }
+    
 
     /**
      * Store a newly created resource in storage.
