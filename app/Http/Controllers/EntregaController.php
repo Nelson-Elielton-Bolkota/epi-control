@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Entrega;
 
 class EntregaController extends Controller
 {
@@ -11,7 +12,8 @@ class EntregaController extends Controller
      */
     public function index()
     {
-        //
+        $entregas = Entrega::latest()->get();
+        return view('entrega.index', compact('entregas'));
     }
 
     /**
