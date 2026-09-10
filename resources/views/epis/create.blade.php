@@ -16,6 +16,12 @@
         </div>
 
         <div class="mb-3">
+            <label for="nome" class="form-label">Tipo</label>
+            <input type="text" name="tipo" id="tipo" class="form-control"
+                   value="{{ old('nome') }}">
+        </div>
+
+        <div class="mb-3">
             <label for="ca" class="form-label">CA</label>
             <input type="text" name="ca" id="ca" class="form-control"
                    value="{{ old('ca') }}">
