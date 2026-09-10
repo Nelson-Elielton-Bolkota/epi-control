@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('funcionarios', function (Blueprint $table) {
             $table->id();
+            $table->string("cpf",11);
+            $table->string("cargo",100);
+            $table->string("setor",100);
+            $table->date("data_admissao");
+            $table->string("status",100);
             $table->timestamps();
         });
     }
