@@ -14,6 +14,7 @@ return new class extends Migration
          Schema::create('epis', function (Blueprint $table) {
             $table->id();
             $table->string('nome', 100);
+            $table->string('tipo',100);
             $table->string('ca', 6);
             $table->string('fabricante', 100);
             $table->integer('quantidade');
