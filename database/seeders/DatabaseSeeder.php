@@ -18,6 +18,10 @@ class DatabaseSeeder extends Seeder
         $this->call([
             EpiSeeder::class,
         ]);
+         $this->call([
+            FuncionarioSeeder::class,
+        ]);
+
 
         User::factory()->create([
             'name' => 'Test User',
