@@ -21,7 +21,7 @@ class EntregaController extends Controller
      */
     public function create()
     {
-        //
+        return view('entregas.create',compact('create'));
     }
 
     /**
