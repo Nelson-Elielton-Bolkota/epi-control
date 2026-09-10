@@ -9,4 +9,4 @@ Route::get('/', function () {
 });
 
 Route::resource('epis', EpiController::class);
-Route::resourse('funcionarios',FuncionarioController::class);
+Route::resource('funcionarios',FuncionarioController::class);

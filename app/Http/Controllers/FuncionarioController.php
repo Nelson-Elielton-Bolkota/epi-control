@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Funcionario;
 use Illuminate\Http\Request;
 
 class FuncionarioController extends Controller
@@ -11,7 +12,9 @@ class FuncionarioController extends Controller
      */
     public function index()
     {
-        //
+        
+        $funcionarios = Funcionario::latest()->get();
+        return view('funcionarios', compact('funcionarios'));
     }
 
     /**
