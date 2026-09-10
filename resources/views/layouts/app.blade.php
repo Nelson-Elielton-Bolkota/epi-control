@@ -1,5 +1,27 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-@section('content')
-    <h1>Minha Página</h1>
-@endsection
+    <title>@yield('title') - EPI Control</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="{{ route('epis.index') }}">
+                EPI Control
+            </a>
+        </div>
+    </nav>
+
+    <main class="container mt-4">
+        @yield('content')
+    </main>
+
+</body>
+</html>
