@@ -15,7 +15,7 @@ class FuncionarioSeeder extends Seeder
     {
         Funcionario::create([
             'nome' => 'Carlos Eduardo Silva',
-            'cpf' => '123.456.789-01',
+            'cpf' => '12345678901',
             'cargo' => 'Técnico de Segurança do Trabalho',
             'setor' => 'SESMT',
             'data_admissao' => '2019-03-10',
@@ -23,7 +23,7 @@ class FuncionarioSeeder extends Seeder
         ]);
         Funcionario::create([
             'nome' => 'Fernanda Oliveira Santos',
-            'cpf' => '234.567.890-12',
+            'cpf' => '23456789012',
             'cargo' => 'Soldador',
             'setor' => 'Produção',
             'data_admissao' => '2021-07-22',
@@ -31,7 +31,7 @@ class FuncionarioSeeder extends Seeder
         ]);
         Funcionario::create([
             'nome' => 'João Pedro Almeida',
-            'cpf' => '345.678.901-23',
+            'cpf' => '34567890123',
             'cargo' => 'Operador de Máquinas',
             'setor' => 'Produção',
             'data_admissao' => '2018-11-05',
@@ -39,7 +39,7 @@ class FuncionarioSeeder extends Seeder
         ]);
         Funcionario::create([
             'nome' => 'Mariana Costa Ferreira',
-            'cpf' => '456.789.012-34',
+            'cpf' => '45678901234',
             'cargo' => 'Almoxarife',
             'setor' => 'Logística',
             'data_admissao' => '2022-01-17',
@@ -47,7 +47,7 @@ class FuncionarioSeeder extends Seeder
         ]);
         Funcionario::create([
             'nome' => 'Ricardo Souza Lima',
-            'cpf' => '567.890.123-45',
+            'cpf' => '56789012345',
             'cargo' => 'Eletricista Industrial',
             'setor' => 'Manutenção',
             'data_admissao' => '2020-06-30',
@@ -55,7 +55,7 @@ class FuncionarioSeeder extends Seeder
         ]);
         Funcionario::create([
             'nome' => 'Beatriz Martins Rocha',
-            'cpf' => '678.901.234-56',
+            'cpf' => '67890123456',
             'cargo' => 'Analista de RH',
             'setor' => 'Recursos Humanos',
             'data_admissao' => '2023-02-14',
@@ -63,7 +63,7 @@ class FuncionarioSeeder extends Seeder
         ]);
         Funcionario::create([
             'nome' => 'Antonio Carlos Pereira',
-            'cpf' => '789.012.345-67',
+            'cpf' => '78901234567',
             'cargo' => 'Supervisor de Produção',
             'setor' => 'Produção',
             'data_admissao' => '2017-09-01',
@@ -71,7 +71,7 @@ class FuncionarioSeeder extends Seeder
         ]);
         Funcionario::create([
             'nome' => 'Juliana Alves Barbosa',
-            'cpf' => '890.123.456-78',
+            'cpf' => '89012345678',
             'cargo' => 'Pintor Industrial',
             'setor' => 'Produção',
             'data_admissao' => '2021-12-03',
@@ -79,7 +79,7 @@ class FuncionarioSeeder extends Seeder
         ]);
         Funcionario::create([
             'nome' => 'Paulo Henrique Nunes',
-            'cpf' => '901.234.567-89',
+            'cpf' => '90123456789',
             'cargo' => 'Motorista de Empilhadeira',
             'setor' => 'Logística',
             'data_admissao' => '2019-08-25',
@@ -87,7 +87,7 @@ class FuncionarioSeeder extends Seeder
         ]);
         Funcionario::create([
             'nome' => 'Camila Ribeiro Dias',
-            'cpf' => '012.345.678-90',
+            'cpf' => '01234567890',
             'cargo' => 'Engenheira de Segurança',
             'setor' => 'SESMT',
             'data_admissao' => '2022-05-09',
