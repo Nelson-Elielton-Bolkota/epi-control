@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Epi;
 
 class EpiController extends Controller
 {
@@ -11,7 +12,8 @@ class EpiController extends Controller
      */
     public function index()
     {
-        //
+        $epis = Epi::latest()->get();
+        return view('epis.index', compact('epis'));
     }
 
     /**
