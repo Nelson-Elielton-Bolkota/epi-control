@@ -10,5 +10,6 @@ Route::get('/', function () {
 });
 
 Route::resource('epis', EpiController::class);
-Route::resource('funcionarios',FuncionarioController::class);
+Route::get('/funcionarios', [FuncionarioController::class, 'index'])
+    ->name('funcionarios.index');
 Route::resource('entregas',EntregaController::class);

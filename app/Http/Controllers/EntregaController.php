@@ -47,17 +47,24 @@ class EntregaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(EntregaRequest $entrega)
+    public function show(Entrega $entrega)
     {
-        return view('entregas.show',compact('show'));
-    }
+        $entrega->load(['funcionario', 'epi']);
 
+        return view('entregas.show', compact('entrega'));
+    }
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(EntregaRequest $entrega)
+     public function edit(Entrega $entrega)
     {
-        return view('entregas.edit',compact('edit'));
+        $funcionarios = Funcionario::where('status', 'Ativo')->get();
+        $epis = Epi::where('status', 'Ativo')->get();
+
+        return view(
+            'entregas.edit',
+            compact('entrega', 'funcionarios', 'epis')
+        );
     }
 
     /**
@@ -65,11 +72,11 @@ class EntregaController extends Controller
      */
     public function update(EntregaRequest $request, Entrega $entrega)
     {
-        $entrega->update($request->all());
+        $entrega->update($request->validated());
 
-        return redirect()
-            ->route('epis.index')
-            ->with('success', 'EPI atualizado com sucesso!');
+    return redirect()
+        ->route('entregas.index')
+        ->with('success', 'Entrega atualizada com sucesso!');
     }
 
     /**
