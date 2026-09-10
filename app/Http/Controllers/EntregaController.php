@@ -22,7 +22,7 @@ class EntregaController extends Controller
      */
     public function create()
     {
-        return view('entregas.create',compact('create'));
+        return view('entregas.create');
     }
 
     /**
@@ -38,7 +38,7 @@ class EntregaController extends Controller
      */
     public function show(EntregaRequest $entrega)
     {
-        //
+        return view('entregas.show',compact('show'));
     }
 
     /**
