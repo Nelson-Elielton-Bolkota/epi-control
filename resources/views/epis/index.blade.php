@@ -10,8 +10,7 @@
 	@foreach ( $epis as $epi)
 		<p>Nome: {{ $epi->nome }}</p>
         <p>Tipo: {{ $epi->tipo }}</p>
-        <p>Ca: {{ $epi->ca}}</p>  
-		<p>Ca: {{ $epi->ca}}</p> 
+        <p>Ca: {{ $epi->ca}}</p> 
 		<p>Fabricante: {{ $epi->fabricante}}</p> 
 		<p>Quantidade: {{ $epi->quantidade}}</p> 
 		<p>Validade: {{ $epi->validade}}</p> 
