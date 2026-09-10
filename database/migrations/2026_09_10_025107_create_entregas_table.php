@@ -12,7 +12,19 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('entregas', function (Blueprint $table) {
-            $table->id();
+        $table->id();
+        $table->foreignId('funcionario_id')
+            ->constrained('funcionarios')
+            ->onDelete('cascade');
+
+        $table->foreignId('epi_id')
+            ->constrained('epis')
+            ->onDelete('cascade');
+
+        $table->integer('quantidade');
+        $table->date('data_entrega');
+        $table->date('data_devolucao')->nullable();
+        $table->text('observacao')->nullable();
             $table->timestamps();
         });
     }
