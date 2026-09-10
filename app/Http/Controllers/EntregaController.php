@@ -30,7 +30,11 @@ class EntregaController extends Controller
      */
     public function store(EntregaRequest $request)
     {
-        //
+        Entrega::create($request->validated());
+
+        return redirect()
+            ->route('entregas.index')
+            ->with('success', 'Entrega efetuada com sucesso!');
     }
 
     /**
@@ -46,22 +50,30 @@ class EntregaController extends Controller
      */
     public function edit(EntregaRequest $entrega)
     {
-        //
+        return view('entregas.edit',compact('edit'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(EntregaRequest $request, Entrega $entrega)
     {
-        //
+        $entrega->update($request->all());
+
+        return redirect()
+            ->route('epis.index')
+            ->with('success', 'EPI atualizado com sucesso!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Entrega $entrega)
     {
-        //
+        $entrega->delete();
+
+        return redirect()
+            ->route('entregas.index')
+            ->with('success', 'Entrega excluída com sucesso!');
     }
 }
