@@ -12,7 +12,7 @@ class StoreEpiRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,7 +23,13 @@ class StoreEpiRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'nome' => 'required|string|max:100',
+            'tipo'=>'required|string|max:100',
+            'ca' => 'required|string|max:6',
+            'fabricante' => 'required|string|max:100',
+            'quantidade' => 'required|integer|min:0',
+            'validade' => 'required|date',
+            'status' => 'required|string|max:255',
         ];
     }
 }

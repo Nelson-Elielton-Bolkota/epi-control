@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Epi;
+use App\Http\Requests\StoreEpiRequest;
 
 class EpiController extends Controller
 {
@@ -28,19 +29,10 @@ class EpiController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreEpiRequest $request)
     {
-        $request->validate([
-            'nome' => 'required|string|max:100',
-            'tipo'=>'required|string|max:100',
-            'ca' => 'required|string|max:6',
-            'fabricante' => 'required|string|max:100',
-            'quantidade' => 'required|integer|min:0',
-            'validade' => 'required|date',
-            'status' => 'required|string|max:255',
-        ]);
-
-        Epi::create($request->all());
+        
+        Epi::create($request->validated());
 
         return redirect()
             ->route('epis.index')
@@ -68,17 +60,8 @@ class EpiController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Epi $epi)
+    public function update(StoreEpiRequest $request, Epi $epi)
     {
-        $request->validate([
-            'nome' => 'required|string|max:100',
-            'tipo' => 'required|string|max:100',
-            'ca' => 'required|string|max:6',
-            'fabricante' => 'required|string|max:100',
-            'quantidade' => 'required|integer|min:0',
-            'validade' => 'required|date',
-            'status' => 'required|string|max:255',
-        ]);
 
         $epi->update($request->all());
 
