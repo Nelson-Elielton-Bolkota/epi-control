@@ -50,32 +50,54 @@ class EpiController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Epi $epi)
     {
-        //
+        
+        return view('epis.show', compact('epi'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Epi $epi)
     {
-        //
+        
+        return view('epis.edit', compact('epi'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Epi $epi)
     {
-        //
+        $request->validate([
+            'nome' => 'required|string|max:100',
+            'tipo' => 'required|string|max:100',
+            'ca' => 'required|string|max:6',
+            'fabricante' => 'required|string|max:100',
+            'quantidade' => 'required|integer|min:0',
+            'validade' => 'required|date',
+            'status' => 'required|string|max:255',
+        ]);
+
+        $epi->update($request->all());
+
+        return redirect()
+            ->route('epis.index')
+            ->with('success', 'EPI atualizado com sucesso!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    
+        public function destroy(Epi $epi)
     {
-        //
+        $epi->delete();
+
+        return redirect()
+            ->route('epis.index')
+            ->with('success', 'EPI excluído com sucesso!');
+    
     }
 }
