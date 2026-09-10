@@ -21,7 +21,8 @@ class EpiController extends Controller
      */
     public function create()
     {
-        //
+        
+        return view('epis.create');
     }
 
     /**
@@ -29,7 +30,20 @@ class EpiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nome' => 'required|string|max:100',
+            'ca' => 'required|string|max:6',
+            'fabricante' => 'required|string|max:100',
+            'quantidade' => 'required|integer|min:0',
+            'validade' => 'required|date',
+            'status' => 'required|string|max:255',
+        ]);
+
+        Epi::create($request->all());
+
+        return redirect()
+            ->route('epis.index')
+            ->with('success', 'EPI cadastrado com sucesso!');
     }
 
     /**
