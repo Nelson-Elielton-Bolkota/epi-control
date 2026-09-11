@@ -29,10 +29,10 @@ Route::middleware('auth')->group(function () {
         ->name('funcionarios.index');
 
     Route::resource('entregas', EntregaController::class);
-});
 
-Route::get('/teste-admin', function () {
-    return 'Você é administrador!';
-})->middleware('role:admin');
+    Route::get('/teste-admin', function () {
+        return 'Você é administrador!';
+    })->middleware('role:admin');
+});
 
 require __DIR__.'/auth.php';
