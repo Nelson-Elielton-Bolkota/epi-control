@@ -2,6 +2,10 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EntregaController;
+use App\Http\Controllers\EpiController;
+use App\Http\Controllers\FuncionarioController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -16,5 +20,19 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::middleware('auth')->group(function () {
+
+    Route::resource('epis', EpiController::class);
+
+    Route::get('/funcionarios', [FuncionarioController::class, 'index'])
+        ->name('funcionarios.index');
+
+    Route::resource('entregas', EntregaController::class);
+});
+
+Route::get('/teste-admin', function () {
+    return 'Você é administrador!';
+})->middleware('role:admin');
 
 require __DIR__.'/auth.php';
