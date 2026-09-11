@@ -45,7 +45,7 @@ class EpiPolicy
      */
     public function delete(User $user, Epi $epi): bool
     {
-        return false;
+        return $user->role === 'admin';
     }
 
     /**
