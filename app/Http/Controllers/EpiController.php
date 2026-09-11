@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Epi;
 use App\Http\Requests\StoreEpiRequest;
+use Illuminate\Support\Facades\Gate;
 
 class EpiController extends Controller
 {
@@ -74,13 +75,12 @@ class EpiController extends Controller
      * Remove the specified resource from storage.
      */
     
-        public function destroy(Epi $epi)
+    public function destroy(Epi $epi)
     {
+        Gate::authorize('delete', $epi);
+
         $epi->delete();
 
-        return redirect()
-            ->route('epis.index')
-            ->with('success', 'EPI excluído com sucesso!');
-    
+        return redirect()->route('epis.index');
     }
 }

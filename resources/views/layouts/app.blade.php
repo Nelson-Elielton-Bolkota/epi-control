@@ -29,8 +29,12 @@
 
             <!-- Page Content -->
             <main>
+            @if(isset($slot))
                 {{ $slot }}
-            </main>
+            @else
+                @yield('content')
+            @endif
+                </main>
         </div>
     </body>
 </html>
