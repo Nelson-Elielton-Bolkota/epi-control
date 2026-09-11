@@ -24,8 +24,24 @@ class DatabaseSeeder extends Seeder
     ]);
 
     User::factory()->create([
-        'name' => 'Test User',
-        'email' => 'test@example.com',
+    'name' => 'Administrador',
+    'email' => 'admin@epicontrol.com',
+    'password' => '12345678',
+    'role' => 'admin',
     ]);
-}
+
+    User::factory()->create([
+        'name' => 'Gerente',
+        'email' => 'gerente@epicontrol.com',
+        'password' => '12345678',
+        'role' => 'gerente',
+    ]);
+
+    User::factory()->create([
+        'name' => 'Usuário',
+        'email' => 'usuario@epicontrol.com',
+        'password' => '12345678',
+        'role' => 'usuario',
+    ]);
+    }
 }
