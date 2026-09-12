@@ -13,8 +13,20 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
+                    {{ __('Dashboard') }}
+                </x-nav-link>
+
+                <x-nav-link :href="route('epis.index')" :active="request()->routeIs('epis.*')">
+                    {{ __('EPIs') }}
+                </x-nav-link>
+
+                <x-nav-link :href="route('funcionarios.index')" :active="request()->routeIs('funcionarios.*')">
+                    {{ __('Funcionários') }}
+                </x-nav-link>
+
+                <x-nav-link :href="route('entregas.index')" :active="request()->routeIs('entregas.*')">
+                    {{ __('Entregas') }}
+                </x-nav-link>
                 </div>
             </div>
 
@@ -69,6 +81,18 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('epis.index')" :active="request()->routeIs('epis.*')">
+                {{ __('EPIs') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('funcionarios.index')" :active="request()->routeIs('funcionarios.*')">
+                {{ __('Funcionários') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('entregas.index')" :active="request()->routeIs('entregas.*')">
+                {{ __('Entregas') }}
             </x-responsive-nav-link>
         </div>
 
