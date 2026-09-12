@@ -6,53 +6,84 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
+# EPI Control
 
-## About Laravel
+Sistema web para gerenciamento de Equipamentos de Proteção Individual (EPIs), funcionários e entregas de equipamentos.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+O projeto foi desenvolvido utilizando Laravel, com autenticação de usuários, controle de acesso por perfis, cadastro e gerenciamento de EPIs, funcionários e entregas.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Tecnologias utilizadas
 
-## Learning Laravel
+- PHP 8.3+
+- Laravel 13
+- Laravel Breeze
+- Blade
+- Tailwind CSS
+- Alpine.js
+- PostgreSQL
+- Vite
+- Pest
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+---
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Funcionalidades
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+### Autenticação
 
-## Agentic Development
+- Cadastro de usuários
+- Login
+- Logout
+- Recuperação e gerenciamento de perfil
+- Proteção das páginas através de autenticação
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+### Usuários e perfis
+
+O sistema possui três tipos de usuários:
+
+- Administrador
+- Gerente
+- Usuário
+
+O controle de acesso utiliza Middleware e Policies para restringir determinadas funcionalidades de acordo com o perfil do usuário.
+
+### Gerenciamento de EPIs
+
+- Listagem de EPIs
+- Cadastro de EPI
+- Visualização de EPI
+- Edição de EPI
+- Exclusão de EPI
+- Controle de quantidade em estoque
+- Status do equipamento
+- Validade
+- Fabricante
+- Certificado de Aprovação (CA)
+
+### Gerenciamento de funcionários
+
+- Listagem de funcionários
+- Visualização das informações dos funcionários
+- Controle de dados como nome, CPF, cargo, setor, data de admissão e status
+
+### Gerenciamento de entregas
+
+- Cadastro de entregas de EPIs
+- Listagem de entregas
+- Visualização dos detalhes da entrega
+- Edição de entregas
+- Exclusão de entregas
+- Registro de quantidade entregue
+- Registro da data de entrega
+- Registro da data de devolução
+- Observações
+
+---
+
+# Instalação
+
+## 1. Clonar o projeto
 
 ```bash
-composer require laravel/boost --dev
-
-php artisan boost:install
-```
-
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+git clone https://github.com/Nelson-Elielton-Bolkota/epi-control.git
