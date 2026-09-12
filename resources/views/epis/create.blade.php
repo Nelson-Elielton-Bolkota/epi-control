@@ -1,60 +1,189 @@
-@extends('layouts.app')
+<x-app-layout>
 
-@section('title', 'Cadastrar EPI')
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Cadastrar EPI') }}
+        </h2>
+    </x-slot>
 
-@section('content')
+    <div class="py-12">
+        <div class="max-w-4xl mx-auto sm:px-6 lg:px-8">
 
-    <h1>Cadastrar EPI</h1>
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
 
-    <form action="{{ route('epis.store') }}" method="POST">
-        @csrf
+                <div class="p-6 text-gray-900">
 
-        <div class="mb-3">
-            <label for="nome" class="form-label">Nome</label>
-            <input type="text" name="nome" id="nome" class="form-control"
-                   value="{{ old('nome') }}">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-6">
+                        Novo Equipamento de Proteção Individual
+                    </h3>
+
+                    <form action="{{ route('epis.store') }}" method="POST">
+                        @csrf
+
+                        {{-- Nome --}}
+                        <div class="mb-5">
+                            <x-input-label for="nome" :value="__('Nome')" />
+
+                            <x-text-input
+                                id="nome"
+                                name="nome"
+                                type="text"
+                                class="mt-1 block w-full"
+                                :value="old('nome')"
+                                required
+                                autofocus
+                            />
+
+                            <x-input-error
+                                :messages="$errors->get('nome')"
+                                class="mt-2"
+                            />
+                        </div>
+
+                        {{-- Tipo --}}
+                        <div class="mb-5">
+                            <x-input-label for="tipo" :value="__('Tipo')" />
+
+                            <x-text-input
+                                id="tipo"
+                                name="tipo"
+                                type="text"
+                                class="mt-1 block w-full"
+                                :value="old('tipo')"
+                                required
+                            />
+
+                            <x-input-error
+                                :messages="$errors->get('tipo')"
+                                class="mt-2"
+                            />
+                        </div>
+
+                        {{-- CA --}}
+                        <div class="mb-5">
+                            <x-input-label for="ca" :value="__('Certificado de Aprovação (CA)')" />
+
+                            <x-text-input
+                                id="ca"
+                                name="ca"
+                                type="text"
+                                class="mt-1 block w-full"
+                                :value="old('ca')"
+                                required
+                            />
+
+                            <x-input-error
+                                :messages="$errors->get('ca')"
+                                class="mt-2"
+                            />
+                        </div>
+
+                        {{-- Fabricante --}}
+                        <div class="mb-5">
+                            <x-input-label for="fabricante" :value="__('Fabricante')" />
+
+                            <x-text-input
+                                id="fabricante"
+                                name="fabricante"
+                                type="text"
+                                class="mt-1 block w-full"
+                                :value="old('fabricante')"
+                                required
+                            />
+
+                            <x-input-error
+                                :messages="$errors->get('fabricante')"
+                                class="mt-2"
+                            />
+                        </div>
+
+                        {{-- Quantidade --}}
+                        <div class="mb-5">
+                            <x-input-label for="quantidade" :value="__('Quantidade')" />
+
+                            <x-text-input
+                                id="quantidade"
+                                name="quantidade"
+                                type="number"
+                                min="0"
+                                class="mt-1 block w-full"
+                                :value="old('quantidade')"
+                                required
+                            />
+
+                            <x-input-error
+                                :messages="$errors->get('quantidade')"
+                                class="mt-2"
+                            />
+                        </div>
+
+                        {{-- Validade --}}
+                        <div class="mb-5">
+                            <x-input-label for="validade" :value="__('Validade')" />
+
+                            <x-text-input
+                                id="validade"
+                                name="validade"
+                                type="date"
+                                class="mt-1 block w-full"
+                                :value="old('validade')"
+                                required
+                            />
+
+                            <x-input-error
+                                :messages="$errors->get('validade')"
+                                class="mt-2"
+                            />
+                        </div>
+
+                        {{-- Status --}}
+                        <div class="mb-6">
+                            <x-input-label for="status" :value="__('Status')" />
+
+                            <select
+                                id="status"
+                                name="status"
+                                class="mt-1 block w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm"
+                                required
+                            >
+                                <option value="Ativo" {{ old('status', 'Ativo') === 'Ativo' ? 'selected' : '' }}>
+                                    Ativo
+                                </option>
+
+                                <option value="Inativo" {{ old('status') === 'Inativo' ? 'selected' : '' }}>
+                                    Inativo
+                                </option>
+                            </select>
+
+                            <x-input-error
+                                :messages="$errors->get('status')"
+                                class="mt-2"
+                            />
+                        </div>
+
+                        {{-- Botões --}}
+                        <div class="flex items-center gap-3">
+
+                            <x-primary-button>
+                                Cadastrar EPI
+                            </x-primary-button>
+
+                            <a
+                                href="{{ route('epis.index') }}"
+                                class="inline-flex items-center px-4 py-2 bg-gray-200 border border-transparent rounded-md font-semibold text-xs text-gray-700 uppercase tracking-widest hover:bg-gray-300 focus:bg-gray-300 active:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150"
+                            >
+                                Voltar
+                            </a>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
         </div>
+    </div>
 
-        <div class="mb-3">
-            <label for="nome" class="form-label">Tipo</label>
-            <input type="text" name="tipo" id="tipo" class="form-control"
-                   value="{{ old('nome') }}">
-        </div>
-
-        <div class="mb-3">
-            <label for="ca" class="form-label">CA</label>
-            <input type="text" name="ca" id="ca" class="form-control"
-                   value="{{ old('ca') }}">
-        </div>
-
-        <div class="mb-3">
-            <label for="fabricante" class="form-label">Fabricante</label>
-            <input type="text" name="fabricante" id="fabricante" class="form-control"
-                   value="{{ old('fabricante') }}">
-        </div>
-
-        <div class="mb-3">
-            <label for="quantidade" class="form-label">Quantidade</label>
-            <input type="number" name="quantidade" id="quantidade" class="form-control"
-                   value="{{ old('quantidade') }}">
-        </div>
-
-        <div class="mb-3">
-            <label for="validade" class="form-label">Validade</label>
-            <input type="date" name="validade" id="validade" class="form-control"
-                   value="{{ old('validade') }}">
-        </div>
-
-        <div class="mb-3">
-            <label for="status" class="form-label">Status</label>
-            <select name="status" id="status" class="form-select">
-                <option value="Ativo">Ativo</option>
-                <option value="Inativo">Inativo</option>
-            </select>
-        </div>
-
-        <button type="submit" class="btn btn-primary">Cadastrar</button>
-        <a href="{{ route('epis.index') }}" class="btn btn-secondary">Voltar</a>
-    </form>
-
-@endsection
+</x-app-layout>

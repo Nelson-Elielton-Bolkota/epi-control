@@ -1,35 +1,99 @@
-@extends('layouts.app')
+<x-app-layout>
 
-@section('title', 'Detalhes do EPI')
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Detalhes do EPI') }}
+        </h2>
+    </x-slot>
 
-@section('content')
+    <div class="py-12">
+        <div class="max-w-4xl mx-auto sm:px-6 lg:px-8">
 
-    <h1>Detalhes do EPI</h1>
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
 
-    <div class="card">
-        <div class="card-body">
+                <div class="p-6 text-gray-900">
 
-            <h5 class="card-title">{{ $epi->nome }}</h5>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">
+                        {{ $epi->nome }}
+                    </h3>
 
-            <p><strong>CA:</strong> {{ $epi->ca }}</p>
+                    <div class="space-y-4">
 
-            <p><strong>Fabricante:</strong> {{ $epi->fabricante }}</p>
+                        <div>
+                            <span class="font-semibold text-gray-700">
+                                Tipo:
+                            </span>
+                            {{ $epi->tipo }}
+                        </div>
 
-            <p><strong>Quantidade:</strong> {{ $epi->quantidade }}</p>
+                        <div>
+                            <span class="font-semibold text-gray-700">
+                                Certificado de Aprovação (CA):
+                            </span>
+                            {{ $epi->ca }}
+                        </div>
 
-            <p><strong>Validade:</strong> {{ $epi->validade }}</p>
+                        <div>
+                            <span class="font-semibold text-gray-700">
+                                Fabricante:
+                            </span>
+                            {{ $epi->fabricante }}
+                        </div>
 
-            <p><strong>Status:</strong> {{ $epi->status }}</p>
+                        <div>
+                            <span class="font-semibold text-gray-700">
+                                Quantidade:
+                            </span>
+                            {{ $epi->quantidade }}
+                        </div>
 
-            <a href="{{ route('epis.index') }}" class="btn btn-secondary">
-                Voltar
-            </a>
+                        <div>
+                            <span class="font-semibold text-gray-700">
+                                Validade:
+                            </span>
+                            {{ $epi->validade }}
+                        </div>
 
-            <a href="{{ route('epis.edit', $epi->id) }}" class="btn btn-warning">
-                Editar
-            </a>
+                        <div>
+                            <span class="font-semibold text-gray-700">
+                                Status:
+                            </span>
+
+                            <span class="ml-2 px-2 py-1 rounded text-sm
+                                {{ $epi->status === 'Ativo'
+                                    ? 'bg-green-100 text-green-800'
+                                    : 'bg-red-100 text-red-800' }}">
+                                {{ $epi->status }}
+                            </span>
+                        </div>
+
+                    </div>
+
+                    <div class="flex items-center gap-3 mt-8">
+
+                        <a
+                            href="{{ route('epis.index') }}"
+                            class="inline-flex items-center px-4 py-2 bg-gray-200 border border-transparent rounded-md font-semibold text-xs text-gray-700 uppercase tracking-widest hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150"
+                        >
+                            Voltar
+                        </a>
+
+                        @can('delete', $epi)
+                            <a
+                                href="{{ route('epis.edit', $epi->id) }}"
+                                class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150"
+                            >
+                                Editar
+                            </a>
+                        @endcan
+
+                    </div>
+
+                </div>
+
+            </div>
 
         </div>
     </div>
 
-@endsection
+</x-app-layout>
